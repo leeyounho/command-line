@@ -3,7 +3,6 @@ package com.samsung.command.module;
 import com.samsung.command.Command;
 import com.samsung.command.strategy.DepositCommand;
 import com.samsung.command.strategy.LogoutCommand;
-import com.samsung.command.strategy.WithdrawCommand;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
@@ -15,12 +14,6 @@ public abstract class UserCommandsModule {
     @IntoMap
     @StringKey("deposit")
     abstract Command depositCommand(DepositCommand command);
-
-
-    @Binds
-    @IntoMap
-    @StringKey("withdraw")
-    abstract Command withdrawCommand(WithdrawCommand command);
 
     @Binds
     @IntoMap
