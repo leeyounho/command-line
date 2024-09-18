@@ -1,8 +1,9 @@
 package com.samsung.command.strategy;
 
 import com.samsung.command.Command;
-import com.samsung.command.Outputter;
 import com.samsung.command.Result;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 
@@ -11,20 +12,18 @@ import java.math.BigDecimal;
  * BigDecimal}.
  */
 public abstract class BigDecimalCommand extends SingleArgCommand {
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    private final Outputter outputter;
-
-    protected BigDecimalCommand(Outputter outputter) {
-        this.outputter = outputter;
+    protected BigDecimalCommand() {
     }
 
     @Override
     protected final Result handleArg(String arg) {
         BigDecimal amount = tryParse(arg);
         if (amount == null) {
-            outputter.output(arg + " is not a valid number");
+            LOGGER.info("{} is not a valid number", arg);
         } else if (amount.signum() <= 0) {
-            outputter.output("amount must be positive");
+            LOGGER.info("amount must be positive");
         } else {
             handleAmount(amount);
         }
