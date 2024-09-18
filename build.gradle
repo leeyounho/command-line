@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.samsung'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // dagger2
+    implementation 'com.google.dagger:dagger:2.42'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
+
+    // TODO log4j2
+
+
+    // TODO hibernate
+}
+
+test {
+    useJUnitPlatform()
+}
