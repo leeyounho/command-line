@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] [%-5level] [%logger{36}] [%thread] - %msg%n"/>
+        </Console>
+
+        <!-- File Appender -->
+        <File name="FileAppender" fileName="logs/app.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] [%-5level] [%logger{36}] [%thread] - %msg%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Integrating with Hibernate -->
+        <!-- avoid hibernate.show_sql property. 이 옵션은 logging API 가 아닌 standard error output stream 에 write 함. -->
+        <Logger name="org.hibernate.SQL" level="DEBUG"/> <!-- Log just the SQL -->
+
+        <!-- Log JDBC bind parameters and extracted values
+             Warning!
+             JDBC bind parameters can contain sensitive data!
+             Passwords, credit card numbers, etc.
+             Use these logger configurations with care! -->
+        <!--
+        <Logger name="org.hibernate.type" level="TRACE"/>
+        <Logger name="org.hibernate.orm.jdbc.bind" level="TRACE"/>
+        <Logger name="org.hibernate.orm.jdbc.extract" level="TRACE"/>
+        -->
+
+        <!-- Root logger -->
+        <Root level="debug">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -15,13 +15,22 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
     // dagger2 - DI framework
+    // TODO 최신 버전 확인
     implementation 'com.google.dagger:dagger:2.42'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 
-    // TODO log4j2 - logging framework
-
+    // log4j2 - logging framework
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.24.0')
+    implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
+    runtimeOnly 'org.apache.logging.log4j:log4j-core' // The logging implementation (i.e., Log4j Core)
+//    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
+//    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge
 
     // TODO hibernate - ORM framework
+
+    // TODO java print library (table, progressbar 등등)
+
+    // TODO Collection을 excel이나 Json으로 visualize 하기 좋게 하는 library 검색..
 }
 
 test {
