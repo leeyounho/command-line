@@ -10,17 +10,18 @@ repositories {
 }
 
 dependencies {
+    // junit - test framework
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
-    // dagger2
+    // dagger2 - DI framework
     implementation 'com.google.dagger:dagger:2.42'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 
-    // TODO log4j2
+    // TODO log4j2 - logging framework
 
 
-    // TODO hibernate
+    // TODO hibernate - ORM framework
 }
 
 test {
