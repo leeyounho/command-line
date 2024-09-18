@@ -2,7 +2,7 @@ package com.samsung.command.component;
 
 import com.samsung.command.CommandRouter;
 import com.samsung.command.module.UserCommandsModule;
-import com.samsung.database.entity.Account;
+import com.samsung.cache.entity.Account;
 import dagger.BindsInstance;
 import dagger.Module;
 import dagger.Subcomponent;

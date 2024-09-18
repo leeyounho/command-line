@@ -1,6 +1,6 @@
 package com.samsung.command.strategy;
 
-import com.samsung.database.entity.Account;
+import com.samsung.cache.entity.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

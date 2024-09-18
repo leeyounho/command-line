@@ -2,7 +2,7 @@ package com.samsung.command.module;
 
 import com.samsung.command.Command;
 import com.samsung.command.strategy.LoginCommand;
-import com.samsung.database.entity.Account;
+import com.samsung.cache.entity.Account;
 import dagger.Binds;
 import dagger.BindsOptionalOf;
 import dagger.Module;

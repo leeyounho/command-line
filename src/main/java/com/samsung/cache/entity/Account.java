@@ -1,4 +1,4 @@
-package com.samsung.database.entity;
+package com.samsung.cache.entity;
 
 import java.math.BigDecimal;
 

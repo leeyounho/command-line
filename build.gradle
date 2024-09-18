@@ -26,11 +26,22 @@ dependencies {
 //    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
 //    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge
 
+    // console progressbar library
+    // https://mvnrepository.com/artifact/me.tongfei/progressbar
+    implementation 'me.tongfei:progressbar:0.9.5' // 0.10.x version 부터는 java 9 support
+
     // TODO hibernate - ORM framework
 
     // TODO java print library (table, progressbar 등등)
 
     // TODO Collection을 excel이나 Json으로 visualize 하기 좋게 하는 library 검색..
+}
+
+// Specify java version
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
 }
 
 test {
