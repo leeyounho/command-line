@@ -2,8 +2,8 @@ package com.samsung.main;
 
 import com.samsung.command.CommandProcessor;
 import com.samsung.command.Status;
-import com.samsung.command.component.CommandProcessorFactory;
-import com.samsung.command.component.DaggerCommandProcessorFactory;
+import com.samsung.component.CommandProcessorFactory;
+import com.samsung.component.DaggerCommandProcessorFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

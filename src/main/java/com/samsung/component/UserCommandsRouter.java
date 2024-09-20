@@ -1,4 +1,4 @@
-package com.samsung.command.component;
+package com.samsung.component;
 
 import com.samsung.command.CommandRouter;
 import com.samsung.command.module.UserCommandsModule;
