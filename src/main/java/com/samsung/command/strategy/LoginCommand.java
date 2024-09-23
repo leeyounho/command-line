@@ -1,7 +1,7 @@
 package com.samsung.command.strategy;
 
 import com.samsung.command.Result;
-import com.samsung.component.UserCommandsRouter;
+import com.samsung.di.component.UserCommandsRouter;
 import com.samsung.cache.Cache;
 import com.samsung.cache.entity.Account;
 import org.apache.logging.log4j.LogManager;

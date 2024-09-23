@@ -7,14 +7,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesLoader {
+public class PropertyLoader {
     private static final Logger LOGGER = LogManager.getLogger();
 
     private final Properties properties = new Properties();
 
-    public PropertiesLoader(String fileName) {
+    public PropertyLoader(String fileName) {
+        LOGGER.debug("PropertiesLoader Created");
         try {
-            InputStream inputStream = PropertiesLoader.class
+            InputStream inputStream = PropertyLoader.class
                     .getClassLoader()
                     .getResourceAsStream(fileName);
             properties.load(inputStream);
@@ -22,7 +23,6 @@ public class PropertiesLoader {
         } catch (IOException exception) {
             LOGGER.error("Properties loading failed", exception);
         }
-        LOGGER.debug("PropertiesLoader Created");
     }
 
     public String getProperty(String key) {

@@ -1,6 +1,5 @@
 package com.samsung.command.strategy;
 
-import com.samsung.command.Command;
 import com.samsung.command.Result;
 import com.samsung.cache.entity.Account;
 import org.apache.logging.log4j.LogManager;

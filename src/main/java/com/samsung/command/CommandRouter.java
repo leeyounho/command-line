@@ -1,5 +1,7 @@
 package com.samsung.command;
 
+import com.samsung.command.strategy.Command;
+
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;

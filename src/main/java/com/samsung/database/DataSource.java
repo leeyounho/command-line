@@ -1,4 +1,5 @@
 package com.samsung.database;
 
-public class TempClass {
+
+public class DataSource {
 }

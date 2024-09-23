@@ -1,12 +1,13 @@
 package com.samsung.command;
 
 
+import com.samsung.di.annotation.CommandScope;
+
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-@Singleton
+@CommandScope
 public final class CommandProcessor {
     private final Deque<CommandRouter> commandRouterStack = new ArrayDeque<>();
 
