@@ -10,18 +10,22 @@ import java.util.Properties;
 public class PropertiesLoader {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public Properties loadProperties(String fileName) {
+    private final Properties properties = new Properties();
+
+    public PropertiesLoader(String fileName) {
         try {
-            Properties configuration = new Properties();
             InputStream inputStream = PropertiesLoader.class
                     .getClassLoader()
                     .getResourceAsStream(fileName);
-            configuration.load(inputStream);
+            properties.load(inputStream);
             inputStream.close();
-            return configuration;
-        } catch (IOException exception){
+        } catch (IOException exception) {
             LOGGER.error("Properties loading failed", exception);
         }
-        return null;
+        LOGGER.debug("PropertiesLoader Created");
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
     }
 }

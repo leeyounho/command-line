@@ -15,6 +15,7 @@ public final class DepositCommand extends BigDecimalCommand {
     public DepositCommand(Account account) {
         super();
         this.account = account;
+        LOGGER.debug("DepositCommand Created");
     }
 
     @Override

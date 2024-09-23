@@ -2,8 +2,8 @@ package com.samsung.main;
 
 import com.samsung.command.CommandProcessor;
 import com.samsung.command.Status;
-import com.samsung.component.CommandProcessorFactory;
-import com.samsung.component.DaggerCommandProcessorFactory;
+import com.samsung.component.AppComponentFactory;
+import com.samsung.component.DaggerAppComponentFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,8 +20,8 @@ class CommandLineAtm {
         LOGGER.error("Error message");
 
         Scanner scanner = new Scanner(System.in);
-        CommandProcessorFactory commandProcessorFactory = DaggerCommandProcessorFactory.create();
-        CommandProcessor commandProcessor = commandProcessorFactory.commandProcessor();
+        AppComponentFactory appComponentFactory = DaggerAppComponentFactory.create();
+        CommandProcessor commandProcessor = appComponentFactory.commandProcessor();
 
         while (scanner.hasNextLine()) {
             Status unused = commandProcessor.process(scanner.nextLine());

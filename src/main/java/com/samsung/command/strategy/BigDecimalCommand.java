@@ -15,6 +15,7 @@ public abstract class BigDecimalCommand extends SingleArgCommand {
     private static final Logger LOGGER = LogManager.getLogger();
 
     protected BigDecimalCommand() {
+        LOGGER.debug("BigDecimalCommand Created");
     }
 
     @Override

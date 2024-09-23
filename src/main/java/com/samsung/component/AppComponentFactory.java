@@ -3,6 +3,7 @@ package com.samsung.component;
 import com.samsung.command.CommandProcessor;
 import com.samsung.command.module.HelloWorldModule;
 import com.samsung.command.module.LoginCommandModule;
+import com.samsung.util.module.ConfigModule;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -13,7 +14,8 @@ import javax.inject.Singleton;
                 LoginCommandModule.class,
                 HelloWorldModule.class,
                 UserCommandsRouter.InstallationModule.class,
+                ConfigModule.class,
         })
-public interface CommandProcessorFactory {
+public interface AppComponentFactory {
     CommandProcessor commandProcessor();
 }

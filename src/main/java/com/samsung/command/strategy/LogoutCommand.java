@@ -16,6 +16,8 @@ public final class LogoutCommand implements Command {
     @Inject
     public LogoutCommand(Account account) {
         this.account = account;
+
+        LOGGER.debug("LogoutCommand Created");
     }
 
     @Override

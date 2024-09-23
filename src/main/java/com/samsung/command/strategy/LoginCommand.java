@@ -21,6 +21,8 @@ public final class LoginCommand extends SingleArgCommand {
         this.cache = cache;
         this.userCommandsRouterFactory = userCommandsRouterFactory;
         this.account = account;
+
+        LOGGER.debug("LoginCommand Created");
     }
 
     @Override
