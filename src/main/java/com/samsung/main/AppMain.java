@@ -1,9 +1,8 @@
 package com.samsung.main;
 
-import com.samsung.command.CommandProcessor;
-import com.samsung.command.Status;
+import com.samsung.command.CommandRouter;
 import com.samsung.di.component.AppComponent;
-import com.samsung.di.component.CommandProcessFactory;
+import com.samsung.di.component.CommandRouterComponent;
 import com.samsung.di.component.DaggerAppComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,16 +15,15 @@ public class AppMain {
     public static void main(String[] args) {
         AppComponent appComponent = DaggerAppComponent.create();
 
-        CommandProcessFactory commandProcessFactory = appComponent.commandComponent().create();
-        CommandProcessor commandProcessor = commandProcessFactory.commandProcessor();
+        CommandRouterComponent commandRouterComponent = appComponent.commandComponent().create();
+        CommandRouter commandRouter = commandRouterComponent.router();
 
         LOGGER.info("AppComponent initialized");
 
-        // Command 를 받으면 실행함.
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
-            Status unused = commandProcessor.process(scanner.nextLine());
+            boolean result = commandRouter.route(scanner.nextLine());
+            LOGGER.info("result={}", result);
         }
-
     }
 }

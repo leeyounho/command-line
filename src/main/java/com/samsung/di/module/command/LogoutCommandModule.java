@@ -8,7 +8,7 @@ import dagger.multibindings.IntoMap;
 import dagger.multibindings.StringKey;
 
 @Module
-abstract class LogoutCommandModule {
+public abstract class LogoutCommandModule {
     @Binds
     @IntoMap
     @StringKey("logout")

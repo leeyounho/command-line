@@ -20,10 +20,8 @@ public interface AppComponent {
     PropertyLoader getPropertyLoader();
     Cache getCache();
 
-    // Member-Injection 메서드 유형 :
-
     // TODO Database 관련 추가.
 
     // Subcomponent 정의
-    CommandProcessFactory.Factory commandComponent();
+    CommandRouterComponent.Factory commandComponent();
 }

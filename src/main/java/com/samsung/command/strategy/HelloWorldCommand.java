@@ -1,7 +1,5 @@
 package com.samsung.command.strategy;
 
-import com.samsung.command.Result;
-import com.samsung.util.PropertyLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,21 +8,18 @@ import java.util.List;
 
 public final class HelloWorldCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
-    private final PropertyLoader propertyLoader;
 
     @Inject
-    public HelloWorldCommand(PropertyLoader propertyLoader) {
+    public HelloWorldCommand() {
         LOGGER.debug("HelloWorldCommand Created");
-        this.propertyLoader = propertyLoader;
     }
 
     @Override
-    public Result handleInput(List<String> input) {
-        LOGGER.info(propertyLoader.getProperty("TEST_123"));
+    public boolean handleInput(List<String> input) {
         if (!input.isEmpty()) {
-            return Result.invalid();
+            return false;
         }
         LOGGER.info("world!");
-        return Result.handled();
+        return true;
     }
 }

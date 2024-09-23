@@ -1,9 +1,10 @@
 package com.samsung.di.component;
 
-import com.samsung.command.CommandProcessor;
+import com.samsung.command.CommandRouter;
 import com.samsung.di.annotation.CommandScope;
 import com.samsung.di.module.command.HelloWorldModule;
 import com.samsung.di.module.command.LoginCommandModule;
+import com.samsung.di.module.command.LogoutCommandModule;
 import dagger.Subcomponent;
 
 
@@ -11,14 +12,14 @@ import dagger.Subcomponent;
 @Subcomponent(
         modules = {
                 LoginCommandModule.class,
+                LogoutCommandModule.class,
                 HelloWorldModule.class,
-                UserCommandsRouter.InstallationModule.class,
         })
-public interface CommandProcessFactory {
-    CommandProcessor commandProcessor();
+public interface CommandRouterComponent {
+    CommandRouter router();
 
     @Subcomponent.Factory
     interface Factory {
-        CommandProcessFactory create();
+        CommandRouterComponent create();
     }
 }

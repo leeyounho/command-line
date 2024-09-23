@@ -1,30 +1,21 @@
 package com.samsung.command.strategy;
 
-import com.samsung.command.Result;
-import com.samsung.cache.entity.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
-import java.util.List;
 
-public final class LogoutCommand implements Command {
+public final class LogoutCommand extends SingleArgCommand {
     private static final Logger LOGGER = LogManager.getLogger();
-    private final Account account;
 
     @Inject
-    public LogoutCommand(Account account) {
-        this.account = account;
-
+    public LogoutCommand() {
         LOGGER.debug("LogoutCommand Created");
     }
 
     @Override
-    public Result handleInput(List<String> input) {
-        if (!input.isEmpty()) {
-            return Result.invalid();
-        }
-        LOGGER.info("logged out {}", account.username());
-        return Result.inputCompleted();
+    public boolean handleArg(String username) {
+        LOGGER.info("logged out {}", username);
+        return true;
     }
 }
