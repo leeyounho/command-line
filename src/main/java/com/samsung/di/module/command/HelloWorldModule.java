@@ -1,6 +1,6 @@
-package com.samsung.command.module;
+package com.samsung.di.module.command;
 
-import com.samsung.command.Command;
+import com.samsung.command.strategy.Command;
 import com.samsung.command.strategy.HelloWorldCommand;
 import dagger.Binds;
 import dagger.Module;

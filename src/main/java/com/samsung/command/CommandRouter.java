@@ -1,45 +1,44 @@
 package com.samsung.command;
 
+import com.samsung.command.strategy.Command;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public final class CommandRouter {
+    private static final Logger LOGGER = LogManager.getLogger();
     private final Map<String, Command> commands;
 
     @Inject
-    CommandRouter(Map<String, Command> commands) {
-        // This map contains:
-        // "hello" -> HelloWorldCommand
-        // "login" -> LoginCommand
+    public CommandRouter(Map<String, Command> commands) {
+        LOGGER.debug("CommandRouter Created");
+
+        // Command Interface 하위 Command를 Map에 넣음
         this.commands = commands;
     }
 
-    Result route(String input) {
+    public boolean route(String input) {
         List<String> splitInput = split(input);
         if (splitInput.isEmpty()) {
-            return invalidCommand(input);
+            return false;
         }
 
         String commandKey = splitInput.get(0);
-        Command command = commands.get(commandKey);
+        Command command = commands.get(commandKey); // Map 에 있는 Command 를 key 로 호출
         if (command == null) {
-            return invalidCommand(input);
+            return false;
         }
 
         List<String> args = splitInput.subList(1, splitInput.size());
-        Result result = command.handleInput(args);
-        return result.status().equals(Status.INVALID) ? invalidCommand(input) : result;
-    }
-
-    private Result invalidCommand(String input) {
-        System.out.println(String.format("couldn't understand \"%s\". please try again.", input));
-        return Result.invalid();
+        return command.handleInput(args);
     }
 
     // Split on whitespace
-    private static List<String> split(String input) {
+    private List<String> split(String input) {
         return Arrays.asList(input.trim().split("\\s+"));
     }
 }

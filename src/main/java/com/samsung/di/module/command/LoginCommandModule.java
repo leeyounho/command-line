@@ -1,10 +1,8 @@
-package com.samsung.command.module;
+package com.samsung.di.module.command;
 
-import com.samsung.command.Command;
+import com.samsung.command.strategy.Command;
 import com.samsung.command.strategy.LoginCommand;
-import com.samsung.database.entity.Account;
 import dagger.Binds;
-import dagger.BindsOptionalOf;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
 import dagger.multibindings.StringKey;
@@ -15,7 +13,4 @@ public abstract class LoginCommandModule {
     @IntoMap
     @StringKey("login")
     abstract Command loginCommand(LoginCommand command);
-
-    @BindsOptionalOf
-    abstract Account optionalAccount();
 }

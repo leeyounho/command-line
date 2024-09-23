@@ -1,26 +1,25 @@
 package com.samsung.command.strategy;
 
-import com.samsung.command.Command;
-import com.samsung.command.Outputter;
-import com.samsung.command.Result;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import java.util.List;
 
 public final class HelloWorldCommand implements Command {
-    private final Outputter outputter;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     @Inject
-    public HelloWorldCommand(Outputter outputter) {
-        this.outputter = outputter;
+    public HelloWorldCommand() {
+        LOGGER.debug("HelloWorldCommand Created");
     }
 
     @Override
-    public Result handleInput(List<String> input) {
+    public boolean handleInput(List<String> input) {
         if (!input.isEmpty()) {
-            return Result.invalid();
+            return false;
         }
-        outputter.output("world!");
-        return Result.handled();
+        LOGGER.info("world!");
+        return true;
     }
 }
