@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'distribution' // 배포 파일 생성을 위한 plugin
 }
 
 group = 'org.samsung'
@@ -53,4 +54,55 @@ java {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    archiveBaseName.set('command-line') // 고정된 jar 파일 명 설정
+    archiveVersion.set('') // 버전 번호 포함하지 않음 (빈 값으로 설정)
+
+    // -cp를 사용하지 않고, java -jar 사용 시 필요
+//    manifest {
+//        attributes(
+//                'Main-Class': 'com.samsung.main.AppMain'
+//        )
+//    }
+
+    // Note 외부 라이브러리 의존성 추가. 1개의 fat jar 생성 시 사용
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+distributions {
+    main {
+        contents {
+            // dependencies -> /lib
+            from { configurations.runtimeClasspath } {
+                into 'lib'
+            }
+
+            // src -> /src
+            from('src') {
+                into 'src'
+                exclude '**/resources/**' // resources 폴더는 복사하지 않음
+                exclude '**/test/**' // test 폴더는 복사하지 않음
+            }
+
+            // application.properties -> /config
+            from('src/main/resources/application.properties') {
+                into 'config'
+            }
+
+            // script -> /.
+            from('script') {
+                into '.'
+            }
+
+            // jar -> /.
+            from(jar) {
+                into '.'
+            }
+        }
+    }
 }
