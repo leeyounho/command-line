@@ -15,7 +15,7 @@ public final class CommandRouter {
 
     @Inject
     public CommandRouter(Map<String, Command> commands) {
-        LOGGER.debug("CommandRouter Created");
+        LOGGER.debug("Initializing CommandRouter");
 
         // Command Interface 하위 Command를 Map에 넣음
         this.commands = commands;

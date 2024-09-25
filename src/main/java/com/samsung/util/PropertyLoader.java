@@ -13,7 +13,7 @@ public class PropertyLoader {
     private final Properties properties = new Properties();
 
     public PropertyLoader(String fileName) {
-        LOGGER.debug("PropertiesLoader Created");
+        LOGGER.debug("Initializing PropertiesLoader");
         try {
             InputStream inputStream = PropertyLoader.class
                     .getClassLoader()

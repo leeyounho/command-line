@@ -10,7 +10,7 @@ public final class LogoutCommand extends SingleArgCommand {
 
     @Inject
     public LogoutCommand() {
-        LOGGER.debug("LogoutCommand Created");
+        LOGGER.debug("Initializing LogoutCommand");
     }
 
     @Override

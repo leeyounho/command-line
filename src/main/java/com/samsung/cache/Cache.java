@@ -16,7 +16,7 @@ public class Cache {
 
     @Inject
     public Cache() {
-        LOGGER.debug("Cache created");
+        LOGGER.debug("Initializing Cache");
     }
 
     public Account getAccount(String username) {

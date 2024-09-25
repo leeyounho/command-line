@@ -11,7 +11,7 @@ public final class HelloWorldCommand implements Command {
 
     @Inject
     public HelloWorldCommand() {
-        LOGGER.debug("HelloWorldCommand Created");
+        LOGGER.debug("Initializing HelloWorldCommand");
     }
 
     @Override

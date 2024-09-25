@@ -12,7 +12,7 @@ public final class LoginCommand extends SingleArgCommand {
 
     @Inject
     public LoginCommand(Cache cache) {
-        LOGGER.debug("LoginCommand Created");
+        LOGGER.debug("Initializing LoginCommand");
 
         this.cache = cache;
     }
