@@ -44,12 +44,10 @@ dependencies {
     // TODO bootstrap할 때, properties 파일을 통해 hibernate.cfg.xml을 불러오거나, DataSource class를 통해 bootstrap하기.
     //  이 때, hibernate.cfg.xml 파일을 읽는다면 절대 경로로 읽지말고 classpath에서 읽도록 하기.
     // TODO JDBC 및 다른 hibernate library 추가 필요
-
-    // TODO application.properties나 application.yml 같은 파일 읽기. dagger를 이용하는 방법을 먼저 찾아보기.
-
+    
     // TODO java print library (table, progressbar 등등)
 
-    // TODO Collection을 excel이나 Json으로 visualize 하기 좋게 하는 library 검색..
+    // TODO memory data를 csv 파일로 export 하는 library 찾기
 }
 
 // Specify java version
