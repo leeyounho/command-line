@@ -35,8 +35,11 @@ dependencies {
     // 5.6 version is compatible with Java 8, JPA 2.2, Jakarta Persistence 3.0
     implementation 'org.hibernate:hibernate-core:5.6.15.Final'
 
-    // google guava
+    // google guava (util library)
     implementation("com.google.guava:guava:33.3.1-jre")
+
+    // picoli (CLI library)
+    implementation 'info.picocli:picocli:4.7.6'
 
     // TODO bootstrap할 때, properties 파일을 통해 hibernate.cfg.xml을 불러오거나, DataSource class를 통해 bootstrap하기.
     //  이 때, hibernate.cfg.xml 파일을 읽는다면 절대 경로로 읽지말고 classpath에서 읽도록 하기.

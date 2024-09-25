@@ -22,8 +22,8 @@ public class AppMain {
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
-            boolean result = commandRouter.route(scanner.nextLine());
-            LOGGER.info("result={}", result);
+            int exitCode = commandRouter.route(scanner.nextLine());
+            LOGGER.debug("exitCode={}", exitCode);
         }
     }
 }

@@ -4,22 +4,18 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
-import java.util.List;
 
-public final class HelloWorldCommand implements Command {
+public final class HelloWorld implements CommandHandler {
     private static final Logger LOGGER = LogManager.getLogger();
 
     @Inject
-    public HelloWorldCommand() {
+    public HelloWorld() {
         LOGGER.debug("Initializing HelloWorldCommand");
     }
 
     @Override
-    public boolean handleInput(List<String> input) {
-        if (!input.isEmpty()) {
-            return false;
-        }
+    public int handleArgs(String... args) {
         LOGGER.info("world!");
-        return true;
+        return 0;
     }
 }
