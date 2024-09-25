@@ -56,6 +56,6 @@ public class ASCIIArt implements Runnable, CommandHandler { // |2|
 
     @Override
     public int handleArgs(String... args) {
-        return new CommandLine(new ASCIIArt()).execute(args);
+        return new CommandLine(this).execute(args); // TODO new CommandLine이 팔요한지 확인 필요
     }
 }
