@@ -1,7 +1,8 @@
-REM 클래스패스로 사용할 lib 폴더 내 모든 JAR 파일 설정
-set CLASSPATH=.\config;.\lib\*;
+rem Go to the directory where the current script is located
+set DIRNAME=%~dp0
+rem Remove the trailing backslash for consistency
+set DIRNAME=%DIRNAME:~0,-1%
 
-REM your-project.jar 실행
-java -cp "%CLASSPATH%;command-line.jar" com.samsung.main.AppMain
+set CLASSPATH=%DIRNAME%\config;%DIRNAME%\lib\*
 
-pause
+java -cp "%CLASSPATH%;%DIRNAME%\command-line.jar" com.samsung.main.AppMain
