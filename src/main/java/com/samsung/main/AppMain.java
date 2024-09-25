@@ -18,7 +18,7 @@ public class AppMain {
         CommandRouterComponent commandRouterComponent = appComponent.commandComponent().create();
         CommandRouter commandRouter = commandRouterComponent.router();
 
-        LOGGER.info("AppComponent initialized");
+        LOGGER.debug("AppMain initialized");
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {

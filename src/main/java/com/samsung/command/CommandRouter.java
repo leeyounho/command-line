@@ -1,7 +1,6 @@
 package com.samsung.command;
 
 import com.google.common.base.Splitter;
-import com.samsung.command.strategy.CommandHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +16,7 @@ public final class CommandRouter {
     public CommandRouter(Map<String, CommandHandler> commands) {
         LOGGER.debug("Initializing CommandRouter");
 
-        // Command Interface 하위 Command를 Map에 넣음
+        // Command Interface 하위 Command를 모두 Map에 넣음
         this.commands = commands;
     }
 

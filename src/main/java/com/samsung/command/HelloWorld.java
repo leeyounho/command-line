@@ -1,4 +1,4 @@
-package com.samsung.command.strategy;
+package com.samsung.command;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

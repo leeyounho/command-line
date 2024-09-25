@@ -1,4 +1,4 @@
-package com.samsung.di.module;
+package com.samsung.di.module.app;
 
 import com.samsung.threadpool.ThreadPoolWrapper;
 import dagger.Module;

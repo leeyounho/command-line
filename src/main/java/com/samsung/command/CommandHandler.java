@@ -1,4 +1,4 @@
-package com.samsung.command.strategy;
+package com.samsung.command;
 
 public interface CommandHandler {
     int handleArgs(String... args);

@@ -1,4 +1,4 @@
-package com.samsung.command.strategy;
+package com.samsung.command;
 
 /**
  * ASCII Art: Basic Picocli based sample application

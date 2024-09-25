@@ -1,9 +1,9 @@
 package com.samsung.di.component;
 
 import com.samsung.cache.Cache;
-import com.samsung.di.module.CacheModule;
-import com.samsung.di.module.PropertyModule;
-import com.samsung.di.module.ThreadPoolModule;
+import com.samsung.di.module.app.CacheModule;
+import com.samsung.di.module.app.PropertyModule;
+import com.samsung.di.module.app.ThreadPoolModule;
 import com.samsung.threadpool.ThreadPoolWrapper;
 import com.samsung.util.PropertyLoader;
 import dagger.Component;

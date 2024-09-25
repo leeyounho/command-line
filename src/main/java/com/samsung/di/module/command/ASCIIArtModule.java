@@ -1,7 +1,7 @@
 package com.samsung.di.module.command;
 
-import com.samsung.command.strategy.ASCIIArt;
-import com.samsung.command.strategy.CommandHandler;
+import com.samsung.command.ASCIIArt;
+import com.samsung.command.CommandHandler;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
