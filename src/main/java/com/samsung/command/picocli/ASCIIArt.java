@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 public class ASCIIArt extends PicoCommandHandler implements Runnable {
     @Inject
     public ASCIIArt() {
-        LOGGER.debug("ASCIIArt initialized");
+        LOGGER.debug("Initializing ASCIIArt");
     }
 
     @Option(names = {"-s", "--font-size"}, description = "Font size")

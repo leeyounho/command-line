@@ -25,10 +25,9 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
     runtimeOnly 'org.apache.logging.log4j:log4j-core' // The logging implementation (i.e., Log4j Core)
 //    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
-//    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge
+    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge - sshj 에서 사용
 
     // console progressbar library
-    // https://mvnrepository.com/artifact/me.tongfei/progressbar
     implementation 'me.tongfei:progressbar:0.9.5' // 0.10.x version 부터는 java 9 support
 
     // hibernate - ORM framework
@@ -41,11 +40,16 @@ dependencies {
     // picoli (CLI library)
     implementation 'info.picocli:picocli:4.7.6'
 
+    // sshj (ssh library)
+    implementation 'com.hierynomus:sshj:0.39.0'
+    implementation 'org.slf4j:slf4j-api:2.0.0' // sshj 에서 사용
+
+
     // TODO bootstrap할 때, properties 파일을 통해 hibernate.cfg.xml을 불러오거나, DataSource class를 통해 bootstrap하기.
     //  이 때, hibernate.cfg.xml 파일을 읽는다면 절대 경로로 읽지말고 classpath에서 읽도록 하기.
     // TODO JDBC 및 다른 hibernate library 추가 필요
     
-    // TODO java print library (table, progressbar 등등)
+    // TODO java print library (table 등등)
 
     // TODO memory data를 csv 파일로 export 하는 library 찾기
 }

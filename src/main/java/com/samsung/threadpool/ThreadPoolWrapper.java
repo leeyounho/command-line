@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.inject.Inject;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,6 +14,7 @@ public class ThreadPoolWrapper {
     private static final Logger LOGGER = LogManager.getLogger(ThreadPoolWrapper.class);
     private final ExecutorService executor;
 
+    @Inject
     public ThreadPoolWrapper() {
         LOGGER.debug("Initializing ThreadPoolWrapper");
 

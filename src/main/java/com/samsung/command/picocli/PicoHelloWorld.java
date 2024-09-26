@@ -9,7 +9,7 @@ import javax.inject.Inject;
 public class PicoHelloWorld extends PicoCommandHandler implements Runnable {
     @Inject
     public PicoHelloWorld() {
-        LOGGER.debug("PicoHelloWorld initialized");
+        LOGGER.debug("Initializing PicoHelloWorld");
     }
 
     @CommandLine.Option(names = {"-s", "--font-size"}, description = "Font size")

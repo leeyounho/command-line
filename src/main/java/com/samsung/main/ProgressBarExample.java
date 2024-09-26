@@ -28,7 +28,6 @@ public class ProgressBarExample {
                 throw new RuntimeException(e);
             }
         }
-        LOGGER.info("END ProgressBarExample");
     }
 
     private static List<String> initList() {

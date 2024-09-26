@@ -1,5 +1,7 @@
 package com.samsung.main;
 
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 import com.samsung.command.CommandRouter;
 import com.samsung.di.component.AppComponent;
 import com.samsung.di.component.CommandRouterComponent;
@@ -24,6 +26,14 @@ public class AppMain {
             새로운 PicoCommand 추가를 위해서는
             1.picocli package 아래 class 추가, 2.PicoCommandModule class 에 method 추가
         */
+
+        Table<String, String, String> temp = HashBasedTable.create();
+
+        temp.put("temp", "test", "1");
+        temp.put("temp", "test1", "2");
+        temp.put("temp", "test2", "3");
+
+        System.out.println(temp);
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
