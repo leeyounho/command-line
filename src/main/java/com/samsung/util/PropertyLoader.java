@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyLoader {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(PropertyLoader.class);
 
     private final Properties properties = new Properties();
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public final class CommandRouter {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(CommandRouter.class);
     private final Map<String, CommandHandler> commands;
 
     @Inject

@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import javax.inject.Inject;
 
 public final class HelloWorld implements CommandHandler {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(HelloWorld.class);
 
     @Inject
     public HelloWorld() {

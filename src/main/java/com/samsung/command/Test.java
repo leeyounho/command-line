@@ -17,9 +17,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 @Command(name = "ASCIIArt", version = "ASCIIArt 1.0", mixinStandardHelpOptions = true) // |1|
-public class ASCIIArt implements Runnable, CommandHandler { // |2|
+public class Test implements Runnable, CommandHandler { // |2|
     @Inject
-    public ASCIIArt() {
+    public Test() {
     }
 
     @Option(names = { "-s", "--font-size" }, description = "Font size") // |3|
@@ -50,7 +50,7 @@ public class ASCIIArt implements Runnable, CommandHandler { // |2|
     }
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new ASCIIArt()).execute(args); // |7|
+        int exitCode = new CommandLine(new Test()).execute(args); // |7|
         CommandLine.defaultFactory().create()
         System.exit(exitCode); // |8|
     }

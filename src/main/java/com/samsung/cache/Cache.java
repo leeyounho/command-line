@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Singleton
 public class Cache {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(Cache.class);
     private final Map<String, Account> accounts = new HashMap<>();
 
     @Inject
