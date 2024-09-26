@@ -50,8 +50,6 @@ dependencies {
     // TODO JDBC 및 다른 hibernate library 추가 필요
     
     // TODO java print library (table 등등)
-
-    // TODO memory data를 csv 파일로 export 하는 library 찾기
 }
 
 // Specify java version
