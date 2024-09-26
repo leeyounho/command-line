@@ -20,6 +20,11 @@ public class AppMain {
 
         LOGGER.debug("AppMain initialized");
 
+        /* Note
+            새로운 PicoCommand 추가를 위해서는
+            1.picocli package 아래 class 추가, 2.PicoCommandModule class 에 method 추가
+        */
+
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
             int exitCode = commandRouter.route(scanner.nextLine());

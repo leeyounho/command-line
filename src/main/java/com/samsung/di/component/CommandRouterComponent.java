@@ -2,7 +2,7 @@ package com.samsung.di.component;
 
 import com.samsung.command.CommandRouter;
 import com.samsung.di.annotation.CommandScope;
-import com.samsung.di.module.command.ASCIIArtModule;
+import com.samsung.di.module.command.PicoCommandModule;
 import com.samsung.di.module.command.HelloWorldModule;
 import dagger.Subcomponent;
 
@@ -10,8 +10,8 @@ import dagger.Subcomponent;
 @CommandScope
 @Subcomponent(
         modules = {
+                PicoCommandModule.class,
                 HelloWorldModule.class,
-                ASCIIArtModule.class,
         })
 public interface CommandRouterComponent {
     CommandRouter router();

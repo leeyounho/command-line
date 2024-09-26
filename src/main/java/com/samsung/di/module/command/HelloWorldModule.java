@@ -1,6 +1,6 @@
 package com.samsung.di.module.command;
 
-import com.samsung.command.CommandHandler;
+import com.samsung.command.PicoCommandHandler;
 import com.samsung.command.HelloWorld;
 import dagger.Binds;
 import dagger.Module;
@@ -12,5 +12,5 @@ public abstract class HelloWorldModule {
     @Binds
     @IntoMap
     @StringKey("hello")
-    abstract CommandHandler helloWorld(HelloWorld command);
+    abstract PicoCommandHandler helloWorld(HelloWorld command);
 }

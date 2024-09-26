@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 
-public final class HelloWorld implements CommandHandler {
+public final class HelloWorld extends PicoCommandHandler {
     private static final Logger LOGGER = LogManager.getLogger(HelloWorld.class);
 
     @Inject
