@@ -5,6 +5,7 @@ import picocli.CommandLine;
 
 import javax.inject.Inject;
 
+// Example Class
 @CommandLine.Command(name = "PicoHelloWorld", version = "1.0", mixinStandardHelpOptions = true)
 public class PicoHelloWorld extends PicoCommandHandler implements Runnable {
     @Inject

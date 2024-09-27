@@ -21,7 +21,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 
     // log4j2 - logging framework
-    implementation platform('org.apache.logging.log4j:log4j-bom:2.23.0') // latest version 이 java 8 support TODO 버전 바꿔보자
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.23.0') // 2.24.0 version 이 java 8 support 하나 bug 있음
     implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
     runtimeOnly 'org.apache.logging.log4j:log4j-core' // The logging implementation (i.e., Log4j Core)
 //    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
@@ -49,12 +49,6 @@ dependencies {
     // sshj (ssh library)
     implementation 'com.hierynomus:sshj:0.39.0'
     implementation 'org.slf4j:slf4j-api:2.0.0' // sshj 에서 사용
-
-
-    // TODO bootstrap할 때, properties 파일을 통해 hibernate.cfg.xml을 불러오거나, DataSource class를 통해 bootstrap하기.
-    // TODO JDBC 및 다른 hibernate library 추가 필요
-    
-    // TODO java print library (table 등등)
 }
 
 // Specify java version

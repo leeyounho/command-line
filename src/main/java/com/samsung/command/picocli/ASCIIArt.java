@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+// Example Class
 @Command(name = "ASCIIArt", version = "ASCIIArt 1.0", mixinStandardHelpOptions = true)
 public class ASCIIArt extends PicoCommandHandler implements Runnable {
     @Inject

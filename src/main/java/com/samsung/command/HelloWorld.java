@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 
+// Example Class
 public final class HelloWorld extends PicoCommandHandler {
     private static final Logger LOGGER = LogManager.getLogger(HelloWorld.class);
 

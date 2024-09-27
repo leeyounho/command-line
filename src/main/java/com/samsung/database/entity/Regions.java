@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// Example Class
 @Entity
 @Table( name = "REGIONS" )
 public class Regions {
