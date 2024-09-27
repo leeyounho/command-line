@@ -15,7 +15,7 @@ public class ApplicationPropertyLoader {
 
     @Inject
     public ApplicationPropertyLoader() {
-        LOGGER.debug("Initializing PropertiesLoader");
+        LOGGER.debug("Initializing ApplicationPropertiesLoader");
 
         try {
             InputStream inputStream = ApplicationPropertyLoader.class
@@ -30,5 +30,9 @@ public class ApplicationPropertyLoader {
 
     public String getProperty(String key) {
         return properties.getProperty(key);
+    }
+
+    public Properties getProperties() {
+        return properties;
     }
 }

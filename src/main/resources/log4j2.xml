@@ -32,7 +32,7 @@
         <Logger name="net.schmizz" level="OFF" additivity="false" />
 
         <!-- Root logger -->
-        <Root level="debug">
+        <Root level="INFO">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </Root>

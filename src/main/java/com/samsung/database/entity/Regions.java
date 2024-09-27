@@ -10,16 +10,16 @@ import javax.persistence.Table;
 public class Regions {
     @Id
     @Column(name = "REGION_ID")
-    private String regionId;
+    private Integer regionId;
 
     @Column(name = "REGION_NAME")
     private String regionName;
 
-    public String getRegionId() {
+    public Integer getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(String regionId) {
+    public void setRegionId(Integer regionId) {
         this.regionId = regionId;
     }
 

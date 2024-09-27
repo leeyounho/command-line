@@ -1,6 +1,7 @@
 package com.samsung.di.component;
 
 import com.samsung.cache.Cache;
+import com.samsung.database.SessionFactoryWrapper;
 import com.samsung.threadpool.ThreadPoolWrapper;
 import com.samsung.util.ApplicationPropertyLoader;
 import com.samsung.util.MyUtil;
@@ -19,7 +20,7 @@ public interface AppComponent {
 
     MyUtil getMyUtil();
 
-    // TODO Database 관련 추가.
+    SessionFactoryWrapper getSessionFactoryWrapper();
 
     // Subcomponent 정의
     CommandRouterComponent.Factory commandComponent();
