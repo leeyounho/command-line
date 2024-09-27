@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'distribution' // 배포 파일 생성을 위한 plugin
 }
 
 group = 'org.samsung'
@@ -20,28 +21,34 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 
     // log4j2 - logging framework
-    implementation platform('org.apache.logging.log4j:log4j-bom:2.24.0') // latest version 이 java 8 support
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.23.0') // 2.24.0 version 이 java 8 support 하나 bug 있음
     implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
     runtimeOnly 'org.apache.logging.log4j:log4j-core' // The logging implementation (i.e., Log4j Core)
 //    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
-//    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge
+    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j2-impl' // SLF4J-to-Log4j bridge - sshj 에서 사용
 
     // console progressbar library
-    // https://mvnrepository.com/artifact/me.tongfei/progressbar
     implementation 'me.tongfei:progressbar:0.9.5' // 0.10.x version 부터는 java 9 support
 
     // hibernate - ORM framework
     // 5.6 version is compatible with Java 8, JPA 2.2, Jakarta Persistence 3.0
     implementation 'org.hibernate:hibernate-core:5.6.15.Final'
-    // TODO bootstrap할 때, properties 파일을 통해 hibernate.cfg.xml을 불러오거나, DataSource class를 통해 bootstrap하기.
-    //  이 때, hibernate.cfg.xml 파일을 읽는다면 절대 경로로 읽지말고 classpath에서 읽도록 하기.
-    // TODO JDBC 및 다른 hibernate library 추가 필요
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-hikaricp
+    implementation 'org.hibernate:hibernate-hikaricp:5.6.15.Final'
+    // https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8
+    implementation 'com.oracle.database.jdbc:ojdbc8:19.3.0.0'
+    // https://mvnrepository.com/artifact/com.oracle.database.nls/orai18n
+    implementation 'com.oracle.database.nls:orai18n:19.3.0.0'
 
-    // TODO application.properties나 application.yml 같은 파일 읽기. dagger를 이용하는 방법을 먼저 찾아보기.
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation 'com.google.guava:guava:33.3.1-jre'
 
-    // TODO java print library (table, progressbar 등등)
+    // picocli (CLI library)
+    implementation 'info.picocli:picocli:4.7.6'
 
-    // TODO Collection을 excel이나 Json으로 visualize 하기 좋게 하는 library 검색..
+    // sshj (ssh library)
+    implementation 'com.hierynomus:sshj:0.39.0'
+    implementation 'org.slf4j:slf4j-api:2.0.0' // sshj 에서 사용
 }
 
 // Specify java version
@@ -53,4 +60,55 @@ java {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    archiveBaseName.set('command-line') // 고정된 jar 파일 명 설정
+    archiveVersion.set('') // 버전 번호 포함하지 않음 (빈 값으로 설정)
+
+    // -cp를 사용하지 않고, java -jar 사용 시 필요
+//    manifest {
+//        attributes(
+//                'Main-Class': 'com.samsung.main.AppMain'
+//        )
+//    }
+
+    // Note 외부 라이브러리 의존성 추가. 1개의 fat jar 생성 시 사용
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+distributions {
+    main {
+        contents {
+            // dependencies -> /lib
+            from { configurations.runtimeClasspath } {
+                into 'lib'
+            }
+
+            // src -> /src
+            from('src') {
+                into 'src'
+                exclude '**/resources/**' // resources 폴더는 복사하지 않음
+                exclude '**/test/**' // test 폴더는 복사하지 않음
+            }
+
+            // application.properties -> /config
+            from('src/main/resources/application.properties') {
+                into 'config'
+            }
+
+            // script -> /.
+            from('script') {
+                into '.'
+            }
+
+            // jar -> /.
+            from(jar) {
+                into '.'
+            }
+        }
+    }
 }

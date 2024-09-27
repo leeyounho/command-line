@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProgressBarExample {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(ProgressBarExample.class);
 
     public static void main(String[] args) {
         LOGGER.info("START ProgressBarExample");
@@ -28,7 +28,6 @@ public class ProgressBarExample {
                 throw new RuntimeException(e);
             }
         }
-        LOGGER.info("END ProgressBarExample");
     }
 
     private static List<String> initList() {

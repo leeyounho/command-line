@@ -1,5 +1,7 @@
 package com.samsung.main;
 
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 import com.samsung.command.CommandRouter;
 import com.samsung.di.component.AppComponent;
 import com.samsung.di.component.CommandRouterComponent;
@@ -10,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Scanner;
 
 public class AppMain {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(AppMain.class);
 
     public static void main(String[] args) {
         AppComponent appComponent = DaggerAppComponent.create();
@@ -18,12 +20,25 @@ public class AppMain {
         CommandRouterComponent commandRouterComponent = appComponent.commandComponent().create();
         CommandRouter commandRouter = commandRouterComponent.router();
 
-        LOGGER.info("AppComponent initialized");
+        LOGGER.debug("AppMain initialized");
+
+        /* Note
+            새로운 PicoCommand 추가를 위해서는
+            1.picocli package 아래 class 추가, 2.PicoCommandModule class 에 method 추가
+        */
+
+        Table<String, String, String> temp = HashBasedTable.create();
+
+        temp.put("temp", "test", "1");
+        temp.put("temp", "test1", "2");
+        temp.put("temp", "test2", "3");
+
+        System.out.println(temp);
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
-            boolean result = commandRouter.route(scanner.nextLine());
-            LOGGER.info("result={}", result);
+            int exitCode = commandRouter.route(scanner.nextLine());
+            LOGGER.debug("exitCode={}", exitCode);
         }
     }
 }
