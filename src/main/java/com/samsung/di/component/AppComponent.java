@@ -16,7 +16,7 @@ public interface AppComponent {
 
     ThreadPoolWrapper getThreadPoolWrapper();
 
-    ApplicationPropertyLoader getPropertyLoader();
+    ApplicationPropertyLoader getApplicationPropertyLoader();
 
     MyUtil getMyUtil();
 

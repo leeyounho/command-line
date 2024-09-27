@@ -21,7 +21,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.42'
 
     // log4j2 - logging framework
-    implementation platform('org.apache.logging.log4j:log4j-bom:2.24.0') // latest version 이 java 8 support
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.23.0') // latest version 이 java 8 support TODO 버전 바꿔보자
     implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
     runtimeOnly 'org.apache.logging.log4j:log4j-core' // The logging implementation (i.e., Log4j Core)
 //    runtimeOnly 'org.apache.logging.log4j:log4j-layout-template-json' // Log4j JSON-encoding support
