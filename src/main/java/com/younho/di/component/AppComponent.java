@@ -5,7 +5,7 @@ import com.younho.database.SessionFactoryWrapper;
 import com.younho.di.module.ConsoleModule;
 import com.younho.threadpool.ThreadPoolWrapper;
 import com.younho.util.ApplicationPropertyLoader;
-import com.younho.util.MyUtil;
+import com.younho.util.AppUtils;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -19,7 +19,7 @@ public interface AppComponent {
 
     ApplicationPropertyLoader getApplicationPropertyLoader();
 
-    MyUtil getMyUtil();
+    AppUtils getAppUtils();
 
     SessionFactoryWrapper getSessionFactoryWrapper();
 

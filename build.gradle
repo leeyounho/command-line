@@ -82,7 +82,7 @@ jar {
 //        )
 //    }
 
-    // Note 외부 라이브러리 의존성 추가. 1개의 fat jar 생성 시 사용
+    // 외부 라이브러리 의존성 추가. 1개의 fat jar 생성 시 사용
 //    from {
 //        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 //    }
