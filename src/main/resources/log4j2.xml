@@ -15,7 +15,7 @@
     <Loggers>
         <!-- Integrating with Hibernate -->
         <!-- avoid hibernate.show_sql property. 이 옵션은 logging API 가 아닌 standard error output stream 에 write 함. -->
-        <Logger name="org.hibernate.SQL" level="DEBUG"/> <!-- Log just the SQL -->
+        <Logger name="org.hibernate.SQL" level="debug"/> <!-- Log just the SQL -->
 
         <!-- Log JDBC bind parameters and extracted values
              Warning!
@@ -32,7 +32,7 @@
         <Logger name="net.schmizz" level="OFF" additivity="false" />
 
         <!-- Root logger -->
-        <Root level="INFO">
+        <Root level="debug">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </Root>
