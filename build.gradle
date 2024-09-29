@@ -52,6 +52,7 @@ dependencies {
 
     // https://github.com/JakeWharton/flip-tables
     // Development on this project has stopped
+    // intellij VM 에 다음 설정 필요 -Dfile.encoding=UTF-8
     implementation 'com.jakewharton.fliptables:fliptables:1.1.1'
 
     // csv library

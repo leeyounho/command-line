@@ -5,4 +5,4 @@ DIRNAME="$( dirname "${BASH_SOURCE[0]}" )"
 
 CLASSPATH=${DIRNAME}/config:${DIRNAME}/lib/*
 
-java -cp "$CLASSPATH:${DIRNAME}/command-line.jar" com.samsung.main.AppMain
+java -cp "$CLASSPATH:${DIRNAME}/command-line.jar" com.younho.main.AppMain

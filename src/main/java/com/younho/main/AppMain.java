@@ -25,8 +25,13 @@ public class AppMain {
             1.picocli package 아래 class 추가, 2.PicoCommandModule class 에 method 추가
         */
         Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            int exitCode = commandRouter.route(scanner.nextLine());
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        while (true) {
+            System.out.print("> ");
+            String input = scanner.nextLine().trim();
+//            String input = reader.readLine().trim();
+            if (input.isEmpty()) continue;
+            int exitCode = commandRouter.route(input);
             LOGGER.debug("exitCode={}", exitCode);
         }
     }

@@ -19,11 +19,6 @@ public final class HelloWorld extends PicoCommandHandler {
     @Inject
     public HelloWorld(ConsoleLogger consoleLogger, @ErrorLogger ConsoleLogger errorLogger, ApplicationPropertyLoader applicationPropertyLoader, MyUtil myUtil, Cache cache, ThreadPoolWrapper threadPoolWrapper, SessionFactoryWrapper sessionFactoryWrapper) {
         LOGGER.debug("Initializing HelloWorldCommand");
-
-        consoleLogger.info("test");
-        errorLogger.info("test_error");
-
-        System.out.println(applicationPropertyLoader.getProperty("TEST_123"));
     }
 
     @Override

@@ -10,11 +10,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 // Example Class
-@Command(name = "ASCIIArt", version = "ASCIIArt 1.0", mixinStandardHelpOptions = true)
-public class ASCIIArt extends PicoCommandHandler implements Runnable {
+@Command(name = "ascii", version = "ascii 1.0", mixinStandardHelpOptions = true)
+public class Ascii extends PicoCommandHandler implements Runnable {
     @Inject
-    public ASCIIArt() {
-        LOGGER.debug("Initializing ASCIIArt");
+    public Ascii() {
+        LOGGER.debug("Initializing Ascii");
     }
 
     @Option(names = {"-s", "--font-size"}, description = "Font size")

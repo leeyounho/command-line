@@ -1,7 +1,8 @@
 package com.younho.di.module.command;
 
 import com.younho.command.PicoCommandHandler;
-import com.younho.command.picocli.ASCIIArt;
+import com.younho.command.picocli.Ascii;
+import com.younho.command.picocli.Exit;
 import com.younho.command.picocli.PicoHelloWorld;
 import dagger.Binds;
 import dagger.Module;
@@ -13,10 +14,15 @@ public abstract class PicoCommandModule {
     @Binds
     @IntoMap
     @StringKey("ascii")
-    abstract PicoCommandHandler ascii(ASCIIArt command);
+    abstract PicoCommandHandler ascii(Ascii command);
 
     @Binds
     @IntoMap
     @StringKey("picohello")
     abstract PicoCommandHandler picoHelloWorld(PicoHelloWorld command);
+
+    @Binds
+    @IntoMap
+    @StringKey("exit")
+    abstract PicoCommandHandler exit(Exit command);
 }
