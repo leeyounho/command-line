@@ -6,3 +6,5 @@ set DIRNAME=%DIRNAME:~0,-1%
 set CLASSPATH=%DIRNAME%\config;%DIRNAME%\lib\*
 
 java -cp "%CLASSPATH%;%DIRNAME%\command-line.jar" com.samsung.main.AppMain
+
+pause
