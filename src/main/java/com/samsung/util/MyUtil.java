@@ -17,6 +17,7 @@ public class MyUtil {
         LOGGER.debug("Initializing MyUtil");
     }
 
+    // TODO csv library 로 바꾸기
     public void guavaTableToCSV(Table<String, String, String> table, String fileName) throws IOException {
         FileWriter csvWriter = new FileWriter(fileName);
 
@@ -39,6 +40,7 @@ public class MyUtil {
 
         csvWriter.flush();
         csvWriter.close();
+
     }
 
     // TODO Guava Table pretty print
