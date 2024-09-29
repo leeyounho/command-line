@@ -15,10 +15,10 @@ import java.util.Arrays;
 public class CsvExample {
     public static void main(String[] args) throws IOException {
         // Reading a CSV file (Access Values by Column Index)
-        read_csv_1();
+//        read_csv_1();
 
         // Reading a CSV file (Access Values by Names assigned to each column)
-//        read_csv_2();
+        read_csv_2();
 
         // Reading a CSV file with Header Auto-detection (Access Values by Header names)
 //        read_csv_3();
