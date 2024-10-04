@@ -1,4 +1,4 @@
-package com.younho.di.module.command;
+package com.younho.di.module;
 
 import com.younho.command.PicoCommandHandler;
 import com.younho.command.picocli.Ascii;

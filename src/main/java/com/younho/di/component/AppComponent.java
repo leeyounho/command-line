@@ -3,6 +3,8 @@ package com.younho.di.component;
 import com.younho.cache.Cache;
 import com.younho.database.SessionFactoryWrapper;
 import com.younho.di.module.ConsoleModule;
+import com.younho.message.KafkaSender;
+import com.younho.message.TibrvSender;
 import com.younho.threadpool.ThreadPoolWrapper;
 import com.younho.util.ApplicationPropertyLoader;
 import com.younho.util.AppUtils;
@@ -23,6 +25,10 @@ public interface AppComponent {
 
     SessionFactoryWrapper getSessionFactoryWrapper();
 
-    // Subcomponent 정의
-    CommandRouterComponent.Factory commandComponent();
+    KafkaSender getKafkaSender();
+
+    TibrvSender getTibrvSender();
+
+    // Define Subcomponent
+    CommandRouterComponent.Factory getCommandRouterComponent();
 }

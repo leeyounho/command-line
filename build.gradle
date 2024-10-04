@@ -58,6 +58,11 @@ dependencies {
     // csv library
     // https://mvnrepository.com/artifact/org.apache.commons/commons-csv
     implementation 'org.apache.commons:commons-csv:1.12.0'
+
+    // tablesaw
+    // https://github.com/jtablesaw/tablesaw
+    implementation 'tech.tablesaw:tablesaw-core:0.43.1'
+
 }
 
 // Specify java version

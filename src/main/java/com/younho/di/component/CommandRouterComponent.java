@@ -2,7 +2,7 @@ package com.younho.di.component;
 
 import com.younho.command.CommandRouter;
 import com.younho.di.annotation.CommandScope;
-import com.younho.di.module.command.PicoCommandModule;
+import com.younho.di.module.PicoCommandModule;
 import dagger.Subcomponent;
 
 
