@@ -15,7 +15,7 @@ public class AppMain {
     public static void main(String[] args) {
         AppComponent appComponent = DaggerAppComponent.create();
 
-        CommandRouterComponent commandRouterComponent = appComponent.commandComponent().create();
+        CommandRouterComponent commandRouterComponent = appComponent.getCommandRouterComponent().create();
         CommandRouter commandRouter = commandRouterComponent.router();
 
         LOGGER.debug("AppMain initialized");

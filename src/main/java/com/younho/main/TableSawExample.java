@@ -7,7 +7,7 @@ import tech.tablesaw.api.Table;
 import java.util.Arrays;
 import java.util.List;
 
-public class TablesawExample {
+public class TableSawExample {
 
     public static void main(String[] args) {
         List<Person> people = Arrays.asList(
