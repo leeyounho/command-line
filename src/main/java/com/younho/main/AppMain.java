@@ -28,7 +28,7 @@ public class AppMain {
 
             List<String> parts = Splitter.on(" ").trimResults().splitToList(input);
 
-            String firstPart = !parts.isEmpty() ? parts.get(0) : "";
+            String firstPart = parts.get(0);
             String[] secondParts = parts.size() > 1 ? parts.subList(1, parts.size()).toArray(new String[0]) : new String[0];
 
             int exitCode = new CommandLine(commandFactory.createCommand(firstPart)).execute(secondParts);
