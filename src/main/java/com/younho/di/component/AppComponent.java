@@ -1,6 +1,7 @@
 package com.younho.di.component;
 
 import com.younho.cache.Cache;
+import com.younho.command.CommandFactory;
 import com.younho.database.SessionFactoryWrapper;
 import com.younho.di.module.ConsoleModule;
 import com.younho.message.KafkaSender;
@@ -29,6 +30,5 @@ public interface AppComponent {
 
     TibrvSender getTibrvSender();
 
-    // Define Subcomponent
-    CommandRouterComponent.Factory getCommandRouterComponent();
+    CommandFactory getCommandFactory();
 }

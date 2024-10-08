@@ -1,12 +1,14 @@
 package com.younho.main;
 
-import com.younho.command.CommandRouter;
+import com.google.common.base.Splitter;
+import com.younho.command.CommandFactory;
 import com.younho.di.component.AppComponent;
-import com.younho.di.component.CommandRouterComponent;
 import com.younho.di.component.DaggerAppComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import picocli.CommandLine;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class AppMain {
@@ -14,9 +16,7 @@ public class AppMain {
 
     public static void main(String[] args) {
         AppComponent appComponent = DaggerAppComponent.create();
-
-        CommandRouterComponent commandRouterComponent = appComponent.getCommandRouterComponent().create();
-        CommandRouter commandRouter = commandRouterComponent.router();
+        CommandFactory commandFactory = appComponent.getCommandFactory();
 
         LOGGER.debug("AppMain initialized");
 
@@ -25,7 +25,13 @@ public class AppMain {
             System.out.print("> ");
             String input = scanner.nextLine().trim();
             if (input.isEmpty()) continue;
-            int exitCode = commandRouter.route(input);
+
+            List<String> parts = Splitter.on(" ").trimResults().splitToList(input);
+
+            String firstPart = !parts.isEmpty() ? parts.get(0) : "";
+            String[] secondParts = parts.size() > 1 ? parts.subList(1, parts.size()).toArray(new String[0]) : new String[0];
+
+            int exitCode = new CommandLine(commandFactory.createCommand(firstPart)).execute(secondParts);
             LOGGER.debug("exitCode={}", exitCode);
         }
     }

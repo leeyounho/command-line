@@ -1,20 +1,16 @@
 package com.younho.command.picocli;
 
-import com.younho.command.PicoCommandHandler;
-import com.younho.message.KafkaSender;
-import com.younho.message.MessageSender;
-import com.younho.message.TibrvSender;
+import com.younho.command.Command;
 import com.younho.util.ConsoleLogger;
-import picocli.CommandLine.Command;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import picocli.CommandLine;
 
-import javax.inject.Inject;
-
-// Example Class
-@Command(name = "exit", version = "exit 1.0", mixinStandardHelpOptions = true)
-public class Exit extends PicoCommandHandler implements Runnable {
+@CommandLine.Command(name = "exit", version = "exit 1.0", mixinStandardHelpOptions = true)
+public class Exit extends Command implements Runnable {
+    private static final Logger LOGGER = LogManager.getLogger(Exit.class);
     private final ConsoleLogger console;
 
-    @Inject
     public Exit(ConsoleLogger console) {
         LOGGER.debug("Initializing Exit");
 

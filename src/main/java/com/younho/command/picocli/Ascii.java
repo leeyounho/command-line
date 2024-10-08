@@ -1,18 +1,15 @@
 package com.younho.command.picocli;
 
-import com.younho.command.PicoCommandHandler;
-import picocli.CommandLine.Command;
+import com.younho.command.Command;
+import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import javax.inject.Inject;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-// Example Class
-@Command(name = "ascii", version = "ascii 1.0", mixinStandardHelpOptions = true)
-public class Ascii extends PicoCommandHandler implements Runnable {
-    @Inject
+@CommandLine.Command(name = "ascii", version = "ascii 1.0", mixinStandardHelpOptions = true)
+public class Ascii extends Command implements Runnable {
     public Ascii() {
         LOGGER.debug("Initializing Ascii");
     }
